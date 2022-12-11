@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <meta name="description" content="微信点餐"/>
+    <link rel="stylesheet" href="/css/icon_font/iconfont.css">
+    <title>微信点餐</title>
+    <script>
+        function Rem() {
+            let fontSize = 0
+            let clientWidth = document.documentElement.clientWidth;
+
+            if (clientWidth <= 320) {
+                fontSize = 320 / 7.5;
+            } else if (clientWidth > 750) {
+                fontSize = 750 / 7.5;
+            } else {
+                fontSize = clientWidth / 7.5;
+            }
+            document.documentElement.style.fontSize = fontSize + "px"
+        }
+
+        Rem();
+        window.onresize = function () {
+            Rem();
+        }
+        //判断元素是否在可视区域
+        window.isElementInViewport = function isElementInViewport(el) {
+            //获取元素是否在可视区域
+            var rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <=
+                (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <=
+                (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+    </script>
+</head>
+<body>
+<div id="root"></div>
+</body>
+</html>
